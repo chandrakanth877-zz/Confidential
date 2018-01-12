@@ -1,0 +1,242 @@
+<form novalidate
+[formGroup]="contactForm"
+>
+    <div class="row">
+        <div class="col-sm-12">
+          <legend class="marginTop">FOREIGN CONTACT DETAILS</legend>
+          <div class="row">
+              <div class="form-row">
+                  <div class="form-group col-md-12"
+                  [ngClass]="{'has-error':(contactForm.get('foreignHomeAddress1').touched ||
+                  contactForm.get('foreignHomeAddress1').dirty)&&
+                  !contactForm.get('foreignHomeAddress1').valid}"
+                  >
+                      <label for="foreignHomeAddress1">Foreign Home Address</label>
+                      <input type="text" formControlName="foreignHomeAddress1" class="form-control" id="foreignHomeAddress1Id" placeholder="1234 Main St">
+                      <span class="help-block" *ngIf="(contactForm.get('foreignHomeAddress1').touched||
+                      contactForm.get('foreignHomeAddress1').dirty)&&
+                      !contactForm.get('foreignHomeAddress1').valid"  >
+                        <span *ngIf="contactForm.get('foreignHomeAddress1').errors.required" >
+                          Please Enter Address
+                        </span>
+                    </span>
+                    </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-row">
+                  <div class="form-group col-md-12"
+                  [ngClass]="{'has-error':(contactForm.get('foreignHomeAddress2').touched ||
+                  contactForm.get('foreignHomeAddress2').dirty)&&
+                  !contactForm.get('foreignHomeAddress2').valid}"
+                  >
+                      <label for="foreignHomeAddress2">Foreign Home Address 2</label>
+                      <input type="text" formControlName="foreignHomeAddress2" class="form-control" id="foreignHomeAddress2Id" placeholder="Apartment, studio, or floor">
+                      <span class="help-block" *ngIf="(contactForm.get('foreignHomeAddress2').touched||
+                      contactForm.get('foreignHomeAddress2').dirty)&&
+                      !contactForm.get('foreignHomeAddress2').valid"  >
+                      </span>
+                    </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-row">
+                  <div class="form-group col-md-6"
+                  [ngClass]="{'has-error':(contactForm.get('foreignHomeCity').touched ||
+                  contactForm.get('foreignHomeCity').dirty)&&
+                  !contactForm.get('foreignHomeCity').valid}"
+                  >
+                    <label for="foreignHomeCity">City</label>
+                    <input type="text" formControlName="foreignHomeCity" class="form-control" id="foreignHomeCityId" placeholder="City">
+                    <span class="help-block" *ngIf="(contactForm.get('foreignHomeCity').touched||
+                    contactForm.get('foreignHomeCity').dirty)&&
+                    !contactForm.get('foreignHomeCity').valid"  >
+                      <span *ngIf="contactForm.get('foreignHomeCity').errors.required" >
+                        Please Enter City Name
+                      </span>
+                  </span>
+                  </div>
+                  <div class="form-group col-md-4"
+                  [ngClass]="{'has-error':(contactForm.get('foreignHomeState').touched ||
+                  contactForm.get('foreignHomeState').dirty)&&
+                  !contactForm.get('foreignHomeState').valid}"
+                  >
+                    <label for="foreignHomeState">State</label>
+                    <input type="text" class="form-control" formControlName="foreignHomeState" id="foreignHomeStateId" placeholder="1234 Main St">
+                    <span class="help-block" *ngIf="(contactForm.get('foreignHomeState').touched||
+                    contactForm.get('foreignHomeState').dirty)&&
+                    !contactForm.get('foreignHomeState').valid"  >
+                      <span *ngIf="contactForm.get('foreignHomeState').errors.required" >
+                        Please Enter State Name
+                      </span>
+                  </span>
+                  </div>
+                  <div class="form-group col-md-2"
+                  [ngClass]="{'has-error':(contactForm.get('foreignHomeZip').touched ||
+                  contactForm.get('foreignHomeZip').dirty)&&
+                  !contactForm.get('foreignHomeZip').valid}"
+                  >
+                    <label for="foreignHomeZip">Zip</label>
+                    <input type="number" formControlName="foreignHomeZip" class="form-control" id="foreignHomeZipId" placeholder="Zip Code">
+                    <span class="help-block" *ngIf="(contactForm.get('foreignHomeZip').touched||
+                    contactForm.get('foreignHomeZip').dirty)&&
+                    !contactForm.get('foreignHomeZip').valid"  >
+                      <span *ngIf="contactForm.get('foreignHomeZip').errors.required" >
+                        Please Enter Zip Code
+                      </span>
+                  </span>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+              <div class="form-row">
+                  <div class="form-group col-md-12"
+                  [ngClass]="{'has-error':(contactForm.get('foreignMobile').touched ||
+                  contactForm.get('foreignMobile').dirty)&&
+                  !contactForm.get('foreignMobile').valid}"
+                  >
+                      <label for="foreignMobile">Mobile Number</label>
+                      <input type="number" formControlName="foreignMobile" class="form-control" id="foreignMobileId" placeholder="0123456789">
+                      <span class="help-block" *ngIf="(contactForm.get('foreignMobile').touched||
+                      contactForm.get('foreignMobile').dirty)&&
+                      !contactForm.get('foreignMobile').valid"  >
+                        <span *ngIf="contactForm.get('foreignMobile').errors.required" >
+                          Please Enter Mobile Number
+                        </span>
+                    </span>
+                    </div>
+              </div>
+          </div>
+         <div class="row col-sm-12">
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="currentlyresidinginUS" type="checkbox" id="currentlyresidinginUS">
+                      <label class="form-check-label" for="gridCheck">
+                          Are you currently residing in the U.S.?
+                      </label>
+                    </div>
+                  </div>
+            </div>
+         </div>
+         <div *ngIf="contactForm.get('currentlyresidinginUS').value" >
+            <div class="row col-sm-12">
+                <legend>US Residential Address</legend>
+             </div>
+              <div class="row">
+                  <div class="form-row">
+                      <div class="form-group col-md-12"
+                      [ngClass]="{'has-error':(contactForm.get('USHomeAddress1').touched ||
+                      contactForm.get('USHomeAddress1').dirty)&&
+                      !contactForm.get('USHomeAddress1').valid}"
+                      >
+                          <label for="USHomeAddress1">U.S. Address</label>
+                          <input type="text" formControlName="USHomeAddress1" class="form-control" id="USHomeAddress1Id" placeholder="1234 Main St">
+                          <span class="help-block" *ngIf="(contactForm.get('USHomeAddress1').touched||
+                          contactForm.get('USHomeAddress1').dirty)&&
+                          !contactForm.get('USHomeAddress1').valid"  >
+                            <span *ngIf="contactForm.get('USHomeAddress1').errors.required" >
+                              Please Enter Address
+                            </span>
+                        </span>
+                        </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-row">
+                      <div class="form-group col-md-12"
+                      [ngClass]="{'has-error':(contactForm.get('USAddress2').touched ||
+                      contactForm.get('USAddress2').dirty)&&
+                      !contactForm.get('USAddress2').valid}"
+                      >
+                          <label for="USAddress2">U.S. Address 2</label>
+                          <input type="text" formControlName="USAddress2" class="form-control" id="USAddress2Id" placeholder="Apartment, studio, or floor">
+                          <span class="help-block" *ngIf="(contactForm.get('USAddress2').touched||
+                          contactForm.get('USAddress2').dirty)&&
+                          !contactForm.get('USAddress2').valid"  >
+                            
+                        </span>
+                        </div>
+                  </div>
+              </div>
+              
+              
+             <div class="row">
+                <div class="form-row">
+                    <div class="form-group col-md-6"
+                    [ngClass]="{'has-error':(contactForm.get('USHomeCity').touched ||
+                    contactForm.get('USHomeCity').dirty)&&
+                    !contactForm.get('USHomeCity').valid}"
+                    >
+                      <label for="USHomeCity">City</label>
+                      <input type="text" formControlName="USHomeCity" class="form-control" id="USHomeCityId" placeholder="City">
+                      <span class="help-block" *ngIf="(contactForm.get('USHomeCity').touched||
+                      contactForm.get('USHomeCity').dirty)&&
+                      !contactForm.get('USHomeCity').valid"  >
+                        <span *ngIf="contactForm.get('USHomeCity').errors.required" >
+                          Please Enter City Name
+                        </span>
+                    </span>
+                    </div>
+                    <div class="form-group col-md-4"
+                    [ngClass]="{'has-error':(contactForm.get('USHomeState').touched ||
+                    contactForm.get('USHomeState').dirty)&&
+                    !contactForm.get('USHomeState').valid}"
+                    >
+                      <label for="USHomeState">State</label>
+                      <input type="text" class="form-control" formControlName="USHomeState" id="USHomeStateId" placeholder="1234 Main St">
+                      <span class="help-block" *ngIf="(contactForm.get('USHomeState').touched||
+                      contactForm.get('USHomeState').dirty)&&
+                      !contactForm.get('USHomeState').valid"  >
+                        <span *ngIf="contactForm.get('USHomeState').errors.required" >
+                          Please Enter State Name
+                        </span>
+                    </span>
+                    </div>
+                    <div class="form-group col-md-2"
+                    [ngClass]="{'has-error':(contactForm.get('USHomeZip').touched ||
+                    contactForm.get('USHomeZip').dirty)&&
+                    !contactForm.get('USHomeZip').valid}"
+                    >
+                      <label for="USHomeZip">Zip</label>
+                      <input type="number" formControlName="USHomeZip" class="form-control" id="USHomeZipId" placeholder="Zip Code">
+                      <span class="help-block" *ngIf="(contactForm.get('USHomeZip').touched||
+                      contactForm.get('USHomeZip').dirty)&&
+                      !contactForm.get('USHomeZip').valid"  >
+                        <span *ngIf="contactForm.get('USHomeZip').errors.required" >
+                          Please Enter Zip Code
+                        </span>
+                    </span>
+                    </div>
+                  </div>
+             </div>
+             <div class="row">
+                <div class="form-row">
+                    <div class="form-group col-md-12"
+                    [ngClass]="{'has-error':(contactForm.get('USMobile').touched ||
+                    contactForm.get('USMobile').dirty)&&
+                    !contactForm.get('USMobile').valid}"
+                    >
+                        <label for="USMobile">Mobile Number</label>
+                        <input type="number" formControlName="USMobile" class="form-control" id="USMobile" placeholder="0123456789">
+                        <span class="help-block" *ngIf="(contactForm.get('USMobile').touched||
+                        contactForm.get('USMobile').dirty)&&
+                        !contactForm.get('USMobile').valid"  >
+                          <span *ngIf="contactForm.get('USMobile').errors.required" >
+                            Please Enter Mobile Number
+                          </span>
+                      </span>
+                      </div>
+                </div>
+             </div>
+         </div>
+         
+          <div class="row">
+              <div class="col-sm-12">
+                  <button type="button" class="btn btn-default" (click)="navigateToPersonal()"  > <span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+                  <button type="button" class="btn btn-primary pull-right"  (click)="navigateToWork()" >Next <span class="glyphicon glyphicon-chevron-right"></span> </button>
+              </div>
+          </div>
+        </div>
+      </div>
+</form>

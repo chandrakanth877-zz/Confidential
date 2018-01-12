@@ -1,0 +1,306 @@
+<form novalidate
+[formGroup]='authorizationForm'
+>
+  <div class="row">
+    <div class="col-sm-12">
+        <legend class="marginTop">
+            I-94 Details
+          </legend>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-4"
+                [ngClass]="{'has-error': (authorizationForm.get('placeOfLastEntry').touched || 
+                authorizationForm.get('placeOfLastEntry').dirty) &&
+                !authorizationForm.get('placeOfLastEntry').valid }"
+                >
+                    <label for="placeOfLastEntry">Place of Last of Entry</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="placeOfLastEntryId"
+                      formControlName="placeOfLastEntry" 
+                      placeholder="State/City">
+                      <span class="help-block" *ngIf="(authorizationForm.get('placeOfLastEntry').touched || 
+                      authorizationForm.get('placeOfLastEntry').dirty) &&
+                      !authorizationForm.get('placeOfLastEntry').valid " >
+                      <span *ngIf="authorizationForm.get('placeOfLastEntry').errors.required" >
+                            Please Enter Place of Entry   
+                      </span> 
+                    </span>
+                </div>
+                <div class="col-md-4"
+                [ngClass]="{'has-error':(authorizationForm.get('visaUsedforEntry').touched || 
+                authorizationForm.get('visaUsedforEntry').dirty) &&
+                !authorizationForm.get('visaUsedforEntry').valid}"
+                >
+                    <label for="visaUsedforEntry">Visa Used for Entry</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="visaUsedforEntryId"
+                        formControlName="visaUsedforEntry" 
+                        placeholder="Visa for Entry">
+                    <span class="help-block" *ngIf="(authorizationForm.get('visaUsedforEntry').touched ||
+                                              authorizationForm.get('visaUsedforEntry').dirty) &&
+                                              !authorizationForm.get('visaUsedforEntry').valid"  >
+                        <span *ngIf="authorizationForm.get('visaUsedforEntry').errors.required" >
+                          Please Enter Visa Used for Entry
+                        </span>
+                    </span>
+                </div>
+                <div class="col-md-4"
+                [ngClass]="{'has-error':(authorizationForm.get('currentVisaStatus').touched ||
+                authorizationForm.get('currentVisaStatus').dirty)&&
+                !authorizationForm.get('currentVisaStatus').valid}" 
+                >
+                    <label for="currentVisaStatus">Current Visa Status</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="currentVisaStatusId" 
+                        formControlName="currentVisaStatus"
+                        placeholder="Current Visa Status">
+                    <span class="help-block" *ngIf="(authorizationForm.get('currentVisaStatus').touched||
+                                                authorizationForm.get('currentVisaStatus').dirty)&&
+                                                !authorizationForm.get('currentVisaStatus').valid"  >
+                          <span *ngIf="authorizationForm.get('currentVisaStatus').errors.required" >
+                            Please Enter Current Visa Status
+                          </span>
+                    </span>
+                </div>
+              </div>
+              <div class="row marginTop">
+                <div class="col-md-4"
+                [ngClass]="{'has-error':(authorizationForm.get('placeVIsaIssued').touched ||
+                authorizationForm.get('placeVIsaIssued').dirty)&&
+                !authorizationForm.get('placeVIsaIssued').valid}"
+                >
+                    <label for="placeVIsaIssued">Place Visa Issued </label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="placeVIsaIssuedId" 
+                      formControlName="placeVIsaIssued"
+                      placeholder="State/City">
+                      <span class="help-block" *ngIf="(authorizationForm.get('placeVIsaIssued').touched||
+                      authorizationForm.get('placeVIsaIssued').dirty)&&
+                      !authorizationForm.get('placeVIsaIssued').valid"  >
+                        <span *ngIf="authorizationForm.get('placeVIsaIssued').errors.required" >
+                          Please Enter place of Visa Issued
+                        </span>
+                    </span>
+                </div>
+                <div class="col-md-4"
+                [ngClass]="{'has-error':(authorizationForm.get('passportNumber').touched ||
+                authorizationForm.get('passportNumber').dirty)&&
+                !authorizationForm.get('passportNumber').valid}"
+                >
+                    <label for="passportNumber">Passport Number</label>
+                    <input type="text" formControlName="passportNumber" class="form-control" id="passportNumberId" placeholder="Passport Number" required>
+                    <span class="help-block" *ngIf="(authorizationForm.get('passportNumber').touched||
+                    authorizationForm.get('passportNumber').dirty)&&
+                    !authorizationForm.get('passportNumber').valid"  >
+                      <span *ngIf="authorizationForm.get('passportNumber').errors.required" >
+                        Please Enter Passport Number
+                      </span>
+                    </span>
+                </div>
+                <div class="col-md-4"
+                [ngClass]="{'has-error':(authorizationForm.get('issuingCountry').touched ||
+                authorizationForm.get('issuingCountry').dirty)&&
+                !authorizationForm.get('issuingCountry').valid}"
+                >
+                    <label for="issuingCountry">Issuing Country</label>
+                    <input type="text" formControlName="issuingCountry" class="form-control" id="issuingCountryId" placeholder="Country" required>
+                    <span class="help-block" *ngIf="(authorizationForm.get('issuingCountry').touched||
+                    authorizationForm.get('issuingCountry').dirty)&&
+                    !authorizationForm.get('issuingCountry').valid"  >
+                      <span *ngIf="authorizationForm.get('issuingCountry').errors.required" >
+                        Please Enter Issuing Country
+                      </span>
+                  </span>
+                </div>
+              </div>
+              <div class="row marginTop">
+                <div class="col-md-6 form-group"
+                [ngClass]="{'has-error':(authorizationForm.get('passportIssueDate').touched ||
+                authorizationForm.get('passportIssueDate').dirty)&&
+                !authorizationForm.get('passportIssueDate').valid}"
+                >
+                    <label for="passportIssueDate">Passport Issue Date </label>
+                    <input type="date" formControlName="passportIssueDate" class="form-control" id="passportIssueDateId">
+                    <span class="help-block" *ngIf="(authorizationForm.get('passportIssueDate').touched||
+                    authorizationForm.get('passportIssueDate').dirty)&&
+                    !authorizationForm.get('passportIssueDate').valid"  >
+                      <span *ngIf="authorizationForm.get('passportIssueDate').errors.required" >
+                        Please Enter Passport Issue Date
+                      </span>
+                  </span>
+                </div>
+                <div class="col-md-6 form-group"
+                [ngClass]="{'has-error':(authorizationForm.get('passportExpirationDate').touched ||
+                authorizationForm.get('passportExpirationDate').dirty)&&
+                !authorizationForm.get('passportExpirationDate').valid}"
+                >
+                    <label for="passportExpirationDate">Passport Expiration Date  </label>
+                    <input type="date" formControlName="passportExpirationDate" class="form-control" id="passportIssueDateId">
+                    <span class="help-block" *ngIf="(authorizationForm.get('passportExpirationDate').touched||
+                    authorizationForm.get('passportExpirationDate').dirty)&&
+                    !authorizationForm.get('passportExpirationDate').valid"  >
+                      <span *ngIf="authorizationForm.get('passportExpirationDate').errors.required" >
+                        Please Enter Passport Expiration Date
+                      </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <legend class="marginTop">
+          CPT/OPT Details
+      </legend>
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-12 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('nameOfUniversity').touched ||
+              authorizationForm.get('nameOfUniversity').dirty)&&
+              !authorizationForm.get('nameOfUniversity').valid}"
+              >
+                  <label for="nameOfUniversity">Name of the University</label>
+                  <input type="text" formControlName="nameOfUniversity" class="form-control" id="nameOfUniversityId" placeholder="University">
+                  <span class="help-block" *ngIf="(authorizationForm.get('nameOfUniversity').touched||
+                  authorizationForm.get('nameOfUniversity').dirty)&&
+                  !authorizationForm.get('nameOfUniversity').valid"  >
+                    <span *ngIf="authorizationForm.get('nameOfUniversity').errors.required" >
+                      Please Enter Name of the University
+                    </span>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('universityAddress1').touched ||
+              authorizationForm.get('universityAddress1').dirty)&&
+              !authorizationForm.get('universityAddress1').valid}"
+              >
+                  <label for="universityAddress1">University Address </label>
+                  <input type="text" formControlName="universityAddress1" class="form-control" id="universityAddress1Id" placeholder="1234 Main St">
+                  <span class="help-block" *ngIf="(authorizationForm.get('universityAddress1').touched||
+                  authorizationForm.get('universityAddress1').dirty)&&
+                  !authorizationForm.get('universityAddress1').valid"  >
+                    <span *ngIf="authorizationForm.get('universityAddress1').errors.required" >
+                      Please Enter University Address 
+                    </span>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('universityAddress2').touched ||
+              authorizationForm.get('universityAddress2').dirty)&&
+              !authorizationForm.get('universityAddress2').valid}"
+              >
+                  <label for="universityAddress2">University Address 2</label>
+                  <input type="text" formControlName="universityAddress2" class="form-control" id="universityAddress2Id" placeholder="Apartment, studio, or floor">
+                  <span class="help-block" *ngIf="(authorizationForm.get('universityAddress2').touched||
+                  authorizationForm.get('universityAddress2').dirty)&&
+                  !authorizationForm.get('universityAddress2').valid"  >
+                </span>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-sm-6 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('universityCity').touched ||
+              authorizationForm.get('universityCity').dirty)&&
+              !authorizationForm.get('universityCity').valid}"
+              >
+                  <label for="universityCity">City</label>
+                  <input type="text" formControlName="universityCity" class="form-control" id="universityCityId" placeholder="City">
+                  <span class="help-block" *ngIf="(authorizationForm.get('universityCity').touched||
+                  authorizationForm.get('universityCity').dirty)&&
+                  !authorizationForm.get('universityCity').valid"  >
+                    <span *ngIf="authorizationForm.get('universityCity').errors.required" >
+                      Please Enter City Name
+                    </span>
+                  </span>
+              </div>
+              <div class="col-sm-4 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('universityState').touched ||
+              authorizationForm.get('universityState').dirty)&&
+              !authorizationForm.get('universityState').valid}"
+              >
+                  <label for="universityState">State</label>
+                  <input type="text" formControlName="universityState" class="form-control" id="universityStateId" placeholder="State">
+                  <span class="help-block" *ngIf="(authorizationForm.get('universityState').touched||
+                  authorizationForm.get('universityState').dirty)&&
+                  !authorizationForm.get('universityState').valid"  >
+                    <span *ngIf="authorizationForm.get('universityState').errors.required" >
+                      Please Enter State Name
+                    </span>
+                </span>
+              </div>
+              <div class="col-sm-2 form-group"
+              [ngClass]="{'has-error':(authorizationForm.get('universityZipCode').touched ||
+              authorizationForm.get('universityZipCode').dirty)&&
+              !authorizationForm.get('universityZipCode').valid}"
+              >
+                  <label for="universityZipCode">Zip</label>
+                  <input type="text" formControlName="universityZipCode" class="form-control" id="universityZipCodeId" placeholder="Zip Code">
+                  <span class="help-block" *ngIf="(authorizationForm.get('universityZipCode').touched||
+                  authorizationForm.get('universityZipCode').dirty)&&
+                  !authorizationForm.get('universityZipCode').valid"  >
+                    <span *ngIf="authorizationForm.get('universityZipCode').errors.required" >
+                      Please Enter Zip Code
+                    </span>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-6"
+              [ngClass]="{'has-error':(authorizationForm.get('OPTStartDate').touched ||
+              authorizationForm.get('OPTStartDate').dirty)&&
+              !authorizationForm.get('OPTStartDate').valid}"
+              >
+                  <label for="OPTStartDate">OPT/CPT Start Date </label>
+                  <input type="date" formControlName="OPTStartDate" class="form-control" id="OPTStartDateId">
+                  <span class="help-block" *ngIf="(authorizationForm.get('OPTStartDate').touched||
+                  authorizationForm.get('OPTStartDate').dirty)&&
+                  !authorizationForm.get('OPTStartDate').valid"  >
+                    <span *ngIf="authorizationForm.get('OPTStartDate').errors.required" >
+                      Please Enter OPT/CPT Start Date
+                    </span>
+                </span>
+              </div>
+              <div class="form-group col-sm-6"
+              [ngClass]="{'has-error':(authorizationForm.get('OPTEndDate').touched ||
+              authorizationForm.get('OPTEndDate').dirty)&&
+              !authorizationForm.get('OPTEndDate').valid}"
+              >
+                  <label for="OPTEndDate">OPT/CPT End Date </label>
+                  <input type="date" formControlName="OPTEndDate" class="form-control" id="OPTEndDateId">
+                  <span class="help-block" *ngIf="(authorizationForm.get('OPTEndDate').touched||
+                  authorizationForm.get('OPTEndDate').dirty)&&
+                  !authorizationForm.get('OPTEndDate').valid"  >
+                    <span *ngIf="authorizationForm.get('OPTEndDate').errors.required" >
+                      Please Enter OPT/CPT End Date 
+                    </span>
+                </span>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <button type="button" class="btn btn-default" (click)="navigateToContact()" ><span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+          <button type="button" class="btn btn-primary pull-right" (click)="navigateToEdu()"  >Next <span class="glyphicon glyphicon-chevron-right"></span> </button>
+      </div>
+  </div>
+</form>

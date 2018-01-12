@@ -1,0 +1,329 @@
+<div class="marginTop">
+    <form novalidate [formGroup]='confidentialForm'>
+        <div>
+            <legend>Personal Details</legend>
+            <div class="row">
+                <div class="col-sm-12">
+                      <div class="form-row">
+                              <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('firstName').touched || 
+                                  confidentialForm.get('firstName').dirty) &&
+                                  !confidentialForm.get('firstName').valid }">
+                                <label for="firstName">First Name</label>
+                                <input type="text" 
+                                      class="form-control"
+                                      formControlName="firstName" 
+                                      id="firstNameId" 
+                                      name="firstName" 
+                                      placeholder="First Name">
+                                      <span class="help-block" 
+                                          *ngIf="(confidentialForm.get('firstName').touched || 
+                                          confidentialForm.get('firstName').dirty) &&
+                                          !confidentialForm.get('firstName').valid" >
+                                          <span *ngIf="confidentialForm.get('firstName').errors.required" >
+                                              Please Enter First Name
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('firstName').errors.minlength" >
+                                                  First Name should contain 3 characters
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('firstName').errors.maxlength" >
+                                                  Max size of characters are 50
+                                          </span>
+                                      </span>
+                              </div>
+                              <div class="form-group col-md-4" 
+                              [ngClass]="{'has-error': (confidentialForm.get('lastName').touched || 
+                              confidentialForm.get('lastName').dirty) &&
+                              !confidentialForm.get('lastName').valid }"
+                              >
+                                <label for="lastName">Last Name</label>
+                                <input type="text" 
+                                      class="form-control" 
+                                      formControlName='lastName'
+                                      id="lastNameId" 
+                                      placeholder="Last Name">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('lastName').touched || 
+                                      confidentialForm.get('lastName').dirty) &&
+                                      !confidentialForm.get('lastName').valid" >
+                                          <span *ngIf="confidentialForm.get('lastName').errors.required" >
+                                              Please Enter Last Name
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('lastName').errors.minlength" >
+                                                  Last Name should contain 3 characters
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('lastName').errors.maxlength" >
+                                                  Max size of characters are 50
+                                          </span>
+                                      </span>
+                              </div>
+                              <div class="form-group col-md-4">
+                                  <label for="middleName">Middle Name</label>
+                                  <input type="text"
+                                          maxlength="1" 
+                                          class="form-control" 
+                                          id="middleNameId" 
+                                          formControlName="middleName"
+                                          placeholder="Middle Name">
+                              </div>
+                      </div>
+                </div>
+            </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                          <div class="form-row">
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('dateOfBirth').touched || 
+                                  confidentialForm.get('dateOfBirth').dirty) &&
+                                  !confidentialForm.get('dateOfBirth').valid }"
+                                  >
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <input type="date" 
+                                          class="form-control"
+                                          id="dateOfBirthId"
+                                          required
+                                          formControlName="dateOfBirth">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('dateOfBirth').touched || 
+                                      confidentialForm.get('dateOfBirth').dirty) &&
+                                      !confidentialForm.get('dateOfBirth').valid" >
+                                          <span *ngIf="confidentialForm.get('lastName').errors.required" >
+                                              Please Enter Date of Birth
+                                          </span>
+                                      </span>    
+                                  </div>
+                                  <div class="form-group col-md-4 "
+                                  [ngClass]="{'has-error': (confidentialForm.get('gender').touched || 
+                                  confidentialForm.get('gender').dirty) &&
+                                  !confidentialForm.get('gender').valid }"
+                                  >
+                                      <label for="gender">Gender</label>
+                                      <div class="row">
+                                          <div class="col-sm-3">
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="radio" formControlName="gender" value="male">
+                                                  <label class="form-check-label" for="male">Male</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="radio" formControlName="gender" value="female">
+                                                  <label class="form-check-label" for="female">Female</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-offset-6"></div>
+                                      </div>
+                                      <span class="help-block" *ngIf="(confidentialForm.get('gender').touched || 
+                                      confidentialForm.get('gender').dirty) &&
+                                      !confidentialForm.get('gender').valid" >
+                                          <span *ngIf="confidentialForm.get('gender').errors.required" >
+                                              Please select Gender
+                                          </span>
+                                      </span>  
+                                  </div>
+                          </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                          <div class="form-row">
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('placeOfBirth').touched || 
+                                  confidentialForm.get('placeOfBirth').dirty) &&
+                                  !confidentialForm.get('placeOfBirth').valid }"
+                                  >
+                                    <label for="placeOfBirth">Place of Birth</label>
+                                    <input type="text" 
+                                          class="form-control" 
+                                          id="palceOfBirthId" 
+                                          placeholder="Place of Birth"
+                                          required
+                                          minlength="3"
+                                          maxlength="50"
+                                          formControlName="placeOfBirth">
+                                  <span class="help-block" *ngIf="(confidentialForm.get('placeOfBirth').touched || 
+                                  confidentialForm.get('placeOfBirth').dirty) &&
+                                  !confidentialForm.get('placeOfBirth').valid" >
+                                      <span *ngIf="confidentialForm.get('placeOfBirth').errors.required" >
+                                          Please Enter Place of Birth
+                                      </span>
+                                      <span *ngIf="confidentialForm.get('placeOfBirth').errors.minlength" >
+                                              Place of Birth should contain 3 characters
+                                      </span>
+                                      <span *ngIf="confidentialForm.get('placeOfBirth').errors.maxlength" >
+                                              Max size of characters are 50
+                                      </span>
+                                  </span>
+                                  </div>
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('provinceOfBirth').touched || 
+                                  confidentialForm.get('provinceOfBirth').dirty) &&
+                                  !confidentialForm.get('provinceOfBirth').valid }"
+                                  >
+                                    <label for="provinceOfBirth">Province of Birth</label>
+                                    <input type="text" 
+                                          class="form-control" 
+                                          id="provinceOfBirthId" 
+                                          required
+                                          minlength="3"
+                                          maxlength="50"
+                                          formControlName="provinceOfBirth"
+                                          placeholder="Province of Birth">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('provinceOfBirth').touched || 
+                                      confidentialForm.get('provinceOfBirth').dirty) &&
+                                      !confidentialForm.get('provinceOfBirth').valid" >
+                                          <span *ngIf="confidentialForm.get('provinceOfBirth').errors.required" >
+                                              Please Enter Province of Birth
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('provinceOfBirth').errors.minlength" >
+                                                  Province of Birth should contain 3 characters
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('provinceOfBirth').errors.maxlength" >
+                                                  Max size of characters are 50
+                                          </span>
+                                      </span>
+                                  </div>
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('countryOfBirth').touched || 
+                                  confidentialForm.get('countryOfBirth').dirty) &&
+                                  !confidentialForm.get('countryOfBirth').valid }"
+                                  >
+                                      <label for="countryOfBirth">Country of Birth</label>
+                                      <input type="text" 
+                                              required
+                                              minlength="3"
+                                              maxlength="50"
+                                              formControlName="countryOfBirth"
+                                              class="form-control" 
+                                              id="countryOfBirth" 
+                                              placeholder="Country of Birth">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('countryOfBirth').touched || 
+                                      confidentialForm.get('countryOfBirth').dirty) &&
+                                      !confidentialForm.get('countryOfBirth').valid" >
+                                          <span *ngIf="confidentialForm.get('countryOfBirth').errors.required" >
+                                              Please Enter Country of Birth
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('countryOfBirth').errors.minlength" >
+                                                  Country of Birth should contain 3 characters
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('countryOfBirth').errors.maxlength" >
+                                                  Max size of characters are 50
+                                          </span>
+                                      </span>
+                                  </div>
+                          </div>
+                  </div>
+              </div>
+              <div class="row">
+                      <div class="col-sm-12">
+                              <div class="form-row">
+                                      <div class="form-group col-md-4"
+                                      [ngClass]="{'has-error': (confidentialForm.get('countryOfCitizenship').touched || 
+                                      confidentialForm.get('countryOfCitizenship').dirty) &&
+                                      !confidentialForm.get('countryOfCitizenship').valid }"
+                                      >
+                                        <label for="countryOfCitizenship">Country of Citizenship</label>
+                                        <input type="text" 
+                                              required
+                                              minlength="3"
+                                              maxlength="50"
+                                              formControlName="countryOfCitizenship"
+                                              class="form-control" 
+                                              id="countryOfCitizenship" 
+                                              placeholder="Country of Citizenship">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('countryOfCitizenship').touched || 
+                                      confidentialForm.get('countryOfCitizenship').dirty) &&
+                                      !confidentialForm.get('countryOfCitizenship').valid" >
+                                          <span *ngIf="confidentialForm.get('countryOfCitizenship').errors.required" >
+                                              Please Enter Country of Citizenship
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('countryOfCitizenship').errors.minlength" >
+                                                  Country of Citizenship should contain 3 characters
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('countryOfCitizenship').errors.maxlength" >
+                                                  Max size of characters are 50
+                                          </span>
+                                      </span>
+                                      </div>
+                                      <div class="form-group col-md-4"
+                                      [ngClass]="{'has-error': (confidentialForm.get('socialSecurityNumber').touched || 
+                                      confidentialForm.get('socialSecurityNumber').dirty) &&
+                                      !confidentialForm.get('socialSecurityNumber').valid }"
+                                      >
+                                        <label for="socialSecurityNumber">Social Security Number </label>
+                                        <input type="number" 
+                                              minlength="9"
+                                              maxlength="9"
+                                              formControlName="socialSecurityNumber"
+                                              class="form-control" 
+                                              id="socialSecurityNumber" 
+                                              placeholder="Social Security Number ">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('socialSecurityNumber').touched || 
+                                      confidentialForm.get('socialSecurityNumber').dirty) &&
+                                      !confidentialForm.get('socialSecurityNumber').valid" >
+                                      <span *ngIf="confidentialForm.get('socialSecurityNumber').errors.minlength" >
+                                              Please Enter 9 Digits
+                                          </span>
+                                          <span *ngIf="confidentialForm.get('socialSecurityNumber').errors.maxlength" >
+                                                  Please Enter 9 Digits
+                                              </span>
+                                      </span>
+                                      </div>
+                                      
+                              </div>
+                      </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                          <div class="form-row">
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('mobile').touched || 
+                                  confidentialForm.get('mobile').dirty) &&
+                                  !confidentialForm.get('mobile').valid }"
+                                  >
+                                      <label for="mobile">Mobile</label>
+                                      <input type="tel" required
+                                              class="form-control" 
+                                              id="mobile"
+                                              required 
+                                              placeholder="Mobile"
+                                              formControlName="mobile">
+                                      <span class="help-block" *ngIf="(confidentialForm.get('mobile').touched || 
+                                      confidentialForm.get('mobile').dirty) &&
+                                      !confidentialForm.get('mobile').valid" >
+                                          <span *ngIf="confidentialForm.get('mobile').errors.required" >
+                                              Please Enter Mobile Number
+                                          </span>
+                                      </span>
+                                  </div>
+                                  <div class="form-group col-md-4"
+                                  [ngClass]="{'has-error': (confidentialForm.get('primaryEMail').touched || 
+                                  confidentialForm.get('primaryEMail').dirty) &&
+                                  !confidentialForm.get('primaryEMail').valid }"
+                                  >
+                                      <label for="primaryEmail">Primary Email </label>
+                                      <input type="email" 
+                                              required
+                                              formControlName="primaryEMail"
+                                              class="form-control" 
+                                              id="primaryEmail" 
+                                              placeholder="Primary Email ">
+                                  <span class="help-block" *ngIf="(confidentialForm.get('primaryEMail').touched || 
+                                  confidentialForm.get('primaryEMail').dirty) &&
+                                  !confidentialForm.get('primaryEMail').valid" >
+                                      <span *ngIf="confidentialForm.get('primaryEMail').errors.required" >
+                                          Please Enter EMail Address
+                                      </span>
+                                  </span>
+                                  </div>
+                                  
+                          </div>
+                  </div>
+              </div>
+              <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-primary pull-right" (click)="navigateToContact()" >Next <span class="glyphicon glyphicon-chevron-right"></span> </button>
+                    </div>
+                </div>
+        </div>
+        
+      </form>
+</div>

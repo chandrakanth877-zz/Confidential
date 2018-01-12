@@ -1,0 +1,216 @@
+<form novalidate
+[formGroup]="educationForm">
+        <legend>
+                Employment Details
+              </legend>
+              <div formArrayName="employeeDetails" *ngFor="let employ of educationForm.get('employeeDetails'); let i=index"   >
+                  <div [formGroupName]="i">
+                        <div class="row">
+                                <div class="form-row">
+                                        <div class="form-group col-md-6"
+                                        [ngClass]="{'has-error':(educationForm.get('employeeDetails.'+i+'.employerName').touched||
+                                        educationForm.get('employeeDetails.'+i+'.employerName').dirty)&&
+                                        !educationForm.get('employeeDetails.'+i+'.employerName').valid
+                                        }" 
+                                        >
+                                          <label attr.for="{{'employerName'+ i }}">Employer Name</label>
+                                          <input type="text" formControlName="employerName" class="form-control" id="{{ 'employerName'+i }}" placeholder="Employer Name">
+                                          <span class="help-block" *ngIf="(educationForm.get('employeeDetails.'+i+'.employerName').touched||
+                                          educationForm.get('employeeDetails.'+i+'.employerName').dirty)&&
+                                          !educationForm.get('employeeDetails.'+i+'.employerName').valid"  >
+                                            <span *ngIf="educationForm.get('employeeDetails.'+i+'.employerName').errors.required" >
+                                              Please Enter Mobile Number
+                                            </span>
+                                        </span>
+                                        </div>
+                                        <div class="form-group col-md-6"
+                                        [ngClass]="{'has-error':(educationForm.get('employeeDetails.'+i+'.position').touched||
+                                        educationForm.get('employeeDetails.'+i+'.position').dirty)&&
+                                        !educationForm.get('employeeDetails.'+i+'.position').valid
+                                        }" 
+                                        >
+                                          <label attr.for="{{'position'+i}}">Position/Title</label>
+                                          <input type="text" formControlName="position" class="form-control" id="{{'positionId'+i}}" placeholder="Title">
+                                          <span class="help-block" *ngIf="(educationForm.get('employeeDetails.'+i+'.position').touched||
+                                          educationForm.get('employeeDetails.'+i+'.position').dirty)&&
+                                          !educationForm.get('employeeDetails.'+i+'.position').valid"  >
+                                            <span *ngIf="educationForm.get('employeeDetails.'+i+'.position').errors.required" >
+                                              Please Enter Mobile Number
+                                            </span>
+                                        </span>
+                                        </div>
+                                    </div>
+                          </div>
+                          <div class="row">
+                                <div class="form-row">
+                                        <div class="form-group col-md-6"
+                                        [ngClass]="{'has-error':(educationForm.get('employeeDetails.'+i+'.EmpStartDate').touched||
+                                        educationForm.get('employeeDetails.'+i+'.EmpStartDate').dirty)&&
+                                        !educationForm.get('employeeDetails.'+i+'.EmpStartDate').valid
+                                        }" 
+                                        >
+                                          <label attr.for="{{'EmpStartDate'+i}}">Start Date </label>
+                                          <input type="date" class="form-control" formControlName="EmpStartDate" id="{{'EmpStartDate'+i}}">
+                                          <span class="help-block" *ngIf="(educationForm.get('employeeDetails.'+i+'.EmpStartDate').touched||
+                                          educationForm.get('employeeDetails.'+i+'.EmpStartDate').dirty)&&
+                                          !educationForm.get('employeeDetails.'+i+'.EmpStartDate').valid"  >
+                                            <span *ngIf="educationForm.get('employeeDetails.'+i+'.EmpStartDate').errors.required" >
+                                              Please Enter Mobile Number
+                                            </span>
+                                        </span>
+                                        </div>
+                                        <div class="form-group col-md-6"
+                                        [ngClass]="{'has-error':(educationForm.get('employeeDetails.'+i+'.EmpEndDate').touched||
+                                        educationForm.get('employeeDetails.'+i+'.EmpEndDate').dirty)&&
+                                        !educationForm.get('employeeDetails.'+i+'.EmpEndDate').valid
+                                        }" 
+                                        >
+                                          <label for="{{'EmpEndDate'+i}}">End Date </label>
+                                          <input type="date" formControlName="EmpEndDate" class="form-control" id="{{'EmpEndDate'+i}}">
+                                          <span class="help-block" *ngIf="(educationForm.get('employeeDetails.'+i+'.EmpEndDate').touched||
+                                          educationForm.get('employeeDetails.'+i+'.EmpEndDate').dirty)&&
+                                          !educationForm.get('employeeDetails.'+i+'.EmpEndDate').valid"  >
+                                            <span *ngIf="educationForm.get('employeeDetails.'+i+'.EmpEndDate').errors.required" >
+                                              Please Enter Mobile Number
+                                            </span>
+                                        </span>
+                                        </div>
+                                    </div>
+                          </div>
+                  </div>
+                  <div class="row col-sm-12" *ngIf="i!=0" >
+                        <div>
+                            <button type="button" class="btn btn-danger" (click)="removeemployeeGroup(i)" > <span class="glyphicon glyphicon-minus"></span> Remove above Employer Details</button>
+                        </div>
+                        <hr>
+                  </div>
+                  <hr>
+              </div>
+              <br>
+              <div class="row col-sm-12">
+                    <div>
+                        <button type="button" class="btn btn-primary marginRight" (click)="addemployeeGroup()" > <span class="glyphicon glyphicon-plus"></span> Add Employer Details</button>
+                    </div>
+              </div>
+              <hr><br>
+              <legend class="marginTop">
+                  Education Details
+                </legend>
+                <div formArrayName="educationDetails" *ngFor="let edu of educationForm.get('educationDetails'); let i=index" >
+                    <div [formGroupName]="i">
+                            <div class="row">
+                                    <div class="form-row">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12"
+                                                [ngClass]="{'has-error':(educationForm.get('educationDetails.'+i+'.educationInstitutionName').touched||
+                                                educationForm.get('educationDetails.'+i+'.educationInstitutionName').dirty)&&
+                                                !educationForm.get('educationDetails.'+i+'.educationInstitutionName').valid
+                                                }"
+                                                >
+                                                    <label attr.for="{{'educationInstitutionName'+i}}">Education Institute Name</label>
+                                                    <input type="text" formControlName="educationInstitutionName" class="form-control" id="{{'educationInstitutionName'+i}}" placeholder="Name of Institution">
+                                                    <span class="help-block" *ngIf="(educationForm.get('educationDetails.'+i+'.educationInstitutionName').touched||
+                                                    educationForm.get('educationDetails.'+i+'.educationInstitutionName').dirty)&&
+                                                    !educationForm.get('educationDetails.'+i+'.educationInstitutionName').valid"  >
+                                                      <span *ngIf="educationForm.get('educationDetails.'+i+'.educationInstitutionName').errors.required" >
+                                                        Please Enter Mobile Number
+                                                      </span>
+                                                  </span>
+                                                  </div>
+                                            </div>
+                                            <div class="form-group col-md-6"
+                                            [ngClass]="{'has-error':(educationForm.get('educationDetails.'+i+'.major').touched||
+                                            educationForm.get('educationDetails.'+i+'.major').dirty)&&
+                                            !educationForm.get('educationDetails.'+i+'.major').valid
+                                            }"
+                                            >
+                                              <label attr.for="{{'major'+i}}">Major</label>
+                                              <input type="text" formControlName="major" class="form-control" id="{{'major'+i}}" placeholder="Computers, Electonics etc...">
+                                              <span class="help-block" *ngIf="(educationForm.get('educationDetails.'+i+'.major').touched||
+                                              educationForm.get('educationDetails.'+i+'.major').dirty)&&
+                                              !educationForm.get('educationDetails.'+i+'.major').valid"  >
+                                                <span *ngIf="educationForm.get('educationDetails.'+i+'.major').errors.required" >
+                                                  Please Enter Mobile Number
+                                                </span>
+                                            </span>
+                                            </div>
+                                            <div class="form-group col-md-6"
+                                            [ngClass]="{'has-error':(educationForm.get('educationDetails.'+i+'.degreeAwarded').touched||
+                                            educationForm.get('educationDetails.'+i+'.degreeAwarded').dirty)&&
+                                            !educationForm.get('educationDetails.'+i+'.degreeAwarded').valid
+                                            }"
+                                            >
+                                              <label attr.for="{{'degreeAwarded'+i}}">Degree Awarded</label>
+                                              <input type="text" formControlName="degreeAwarded" class="form-control" id="{{'degreeAwarded'+i}}" placeholder="Bachelors/Masters etc...">
+                                              <span class="help-block" *ngIf="(educationForm.get('educationDetails.'+i+'.degreeAwarded').touched||
+                                              educationForm.get('educationDetails.'+i+'.degreeAwarded').dirty)&&
+                                              !educationForm.get('educationDetails.'+i+'.degreeAwarded').valid"  >
+                                                <span *ngIf="educationForm.get('educationDetails.'+i+'.degreeAwarded').errors.required" >
+                                                  Please Enter Mobile Number
+                                                </span>
+                                            </span>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="row">
+                                    <div class="form-row">
+                                            <div class="form-group col-md-6"
+                                            [ngClass]="{'has-error':(educationForm.get('educationDetails.'+i+'.EduStartDate').touched||
+                                            educationForm.get('educationDetails.'+i+'.EduStartDate').dirty)&&
+                                            !educationForm.get('educationDetails.'+i+'.EduStartDate').valid
+                                            }"
+                                            >
+                                              <label attr.for="{{'EduStartDate'+i}}">Start Date </label>
+                                              <input type="date" formControlName="EduStartDate" class="form-control" id="{{'EduStartDate'+i}}">
+                                              <span class="help-block" *ngIf="(educationForm.get('educationDetails.'+i+'.EduStartDate').touched||
+                                              educationForm.get('educationDetails.'+i+'.EduStartDate').dirty)&&
+                                              !educationForm.get('educationDetails.'+i+'.EduStartDate').valid"  >
+                                                <span *ngIf="educationForm.get('educationDetails.'+i+'.EduStartDate').errors.required" >
+                                                  Please Enter Mobile Number
+                                                </span>
+                                            </span>
+                                            </div>
+                                            <div class="form-group col-md-6"
+                                            [ngClass]="{'has-error':(educationForm.get('educationDetails.'+i+'.EduEndDate').touched||
+                                            educationForm.get('educationDetails.'+i+'.EduEndDate').dirty)&&
+                                            !educationForm.get('educationDetails.'+i+'.EduEndDate').valid
+                                            }"
+                                            >
+                                              <label attr.for="{{'EduEndDate'+i}}">End Date </label>
+                                              <input type="date" formControlName="EduEndDate" class="form-control" id="{{'EduEndDate'+i}}">
+                                              <span class="help-block" *ngIf="(educationForm.get('educationDetails.'+i+'.EduEndDate').touched||
+                                              educationForm.get('educationDetails.'+i+'.EduEndDate').dirty)&&
+                                              !educationForm.get('educationDetails.'+i+'.EduEndDate').valid"  >
+                                                <span *ngIf="educationForm.get('educationDetails.'+i+'.EduEndDate').errors.required" >
+                                                  Please Enter Mobile Number
+                                                </span>
+                                            </span>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="row col-sm-12" *ngIf="i!=0">
+                                <div>
+                                    <button type="button" class="btn btn-danger marginRight" (click)="removeeducationGroup(i)" > <span class="glyphicon glyphicon-minus"></span> Remove above Education Details</button>
+                                </div>
+                                <hr>
+                            </div>
+                            <hr>
+                    </div>
+                </div>
+                <div class="row col-sm-12">
+                        <div>
+                                <button type="button" class="btn btn-primary marginRight" (click)="addeducationGroup()" > <span class="glyphicon glyphicon-plus"></span> Add Education Details</button>
+                            </div>
+                </div>
+            
+                <hr>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-default" (click)="navigateToWork()" > <span class="glyphicon glyphicon-chevron-left"></span> Back</button>
+                    </div>
+                </div>
+                
+</form>
+

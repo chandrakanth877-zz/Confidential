@@ -1,0 +1,37 @@
+ <div class="row confidentialBody">
+   <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Confidential Form</h3>
+        </div>
+        <div class="panel-body">
+            <div class="wizard">
+                <a [routerLink]="['personal']" routerLinkActive="active">
+                        Personal
+                        
+                </a>
+                <a [routerLink]="['contact']" routerLinkActive="active">
+                        Contact
+                        
+                </a>
+                <a [routerLink]="['work']" routerLinkActive="active">
+                        Authorization
+                        
+                </a>
+                <a [routerLink]="['education']" routerLinkActive="active">
+                        Education &amp; Employement
+                        
+                </a>
+            </div>
+            
+            <router-outlet></router-outlet>
+            <flash-messages></flash-messages>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-success btn-block" (click)="saveData()"  >Save</button>
+                </div>
+            </div>
+        </div>
+     </div>
+   </div>
